@@ -37,6 +37,15 @@
 #define RPI_GPIO_BASE       ( PERIPHERAL_BASE + 0x200000UL )
 
 
+// Music
+
+#define SOUND_GPFSEL      GPFSEL1
+#define SOUND_GPFBIT      24
+#define S0UND_GPSET       GPSET1
+#define SOUND_GPCLR       GPCLR1
+#define SOUND_GPIO_BIT    18
+
+
 #define LED_GPFSEL      GPFSEL0
 #define LED_GPFBIT      6
 #define LED_GPSET       GPSET0
