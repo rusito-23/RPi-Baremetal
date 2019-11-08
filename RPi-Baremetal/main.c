@@ -13,7 +13,6 @@ extern void __enable_interrupts ( void );
 void __attribute__((interrupt("IRQ"))) interrupt_vector ( void )
 {
     static int lit = 0;
-
     /* Clear the ARM Timer interrupt - it's the only interrupt we have
        enabled, so we want don't have to work out which interrupt source
        caused us to interrupt */
@@ -36,7 +35,7 @@ void __attribute__((interrupt("IRQ"))) interrupt_vector ( void )
 //-------------------------------------------------------------------------
 int notmain ( void )
 {
-    
+
     RPI_GetIrqController()->Disable_Basic_IRQs = RPI_BASIC_ARM_TIMER_IRQ;
 
     RPI_GetGpio()->LED_GPFSEL |= 1 << LED_GPFBIT;   // Configurar GPIO del LED como salida | Revisar definiciones en archivo rpi-gpio.h
@@ -58,7 +57,6 @@ int notmain ( void )
     
     while(1) {
     //============================ CODE APP HERE =====================================
-        
     }
     return(0);
 }

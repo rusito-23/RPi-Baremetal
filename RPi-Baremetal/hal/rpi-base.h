@@ -33,7 +33,7 @@
 
 #include <stdint.h>
 
-#define PERIPHERAL_BASE     0x3F000000UL
+#define PERIPHERAL_BASE     0x3F000000
 
 
 typedef volatile uint32_t rpi_reg_rw_t;

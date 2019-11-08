@@ -34,23 +34,26 @@
 #include "rpi-base.h"
 
 /** The base address of the GPIO peripheral (ARM Physical Address) */
-#define RPI_GPIO_BASE       ( PERIPHERAL_BASE + 0x200000UL )
+#define RPI_GPIO_BASE       ( PERIPHERAL_BASE + 0x200000 )
 
 
 // Music
-
+/*
 #define SOUND_GPFSEL      GPFSEL1
 #define SOUND_GPFBIT      24
-#define S0UND_GPSET       GPSET1
-#define SOUND_GPCLR       GPCLR1
+#define SOUND_GPSET       GPSET0
+#define SOUND_GPCLR       GPCLR0
 #define SOUND_GPIO_BIT    18
+#define SOUND_ON()        do { RPI_GetGpio()->SOUND_GPCLR = ( 1 << SOUND_GPIO_BIT ); } while( 0 )
+#define SOUND_OFF()       do { RPI_GetGpio()->SOUND_GPSET = ( 1 << SOUND_GPIO_BIT ); } while( 0 )
+*/
 
 
-#define LED_GPFSEL      GPFSEL0
-#define LED_GPFBIT      6
+#define LED_GPFSEL      GPFSEL1
+#define LED_GPFBIT      24
 #define LED_GPSET       GPSET0
 #define LED_GPCLR       GPCLR0
-#define LED_GPIO_BIT    2
+#define LED_GPIO_BIT    18
 #define LED_ON()        do { RPI_GetGpio()->LED_GPCLR = ( 1 << LED_GPIO_BIT ); } while( 0 )
 #define LED_OFF()       do { RPI_GetGpio()->LED_GPSET = ( 1 << LED_GPIO_BIT ); } while( 0 )
 
@@ -59,7 +62,7 @@
 #define RPI_GPIO_FSEL0_00_INPUT     ( 0 )
 #define RPI_GPIO_FSEL0_00_OUTPUT    ( 1 )
 
-#define RPI_GPIO_FSEL0_01_INPUT     ( 0 << 3 )
+#define RPI_GPIO_FSEL0_01_INPUT     ( 0 << 3 ) // Hace un LSL
 #define RPI_GPIO_FSEL0_01_OUTPUT    ( 1 << 3 )
 
 #define RPI_GPIO_FSEL0_02_INPUT     ( 0 << 6 )
