@@ -6,6 +6,6 @@ echo "Installing into: ${DESTINATION}"
 
 cp boot/bootcode.bin $DESTINATION/bootcode.bin
 cp kernel7.img $DESTINATION/kernel7.img
-cp main.elf $DESTINATION/start.elf
+cp boot/start.elf $DESTINATION/start.elf
 
 echo "Done"
