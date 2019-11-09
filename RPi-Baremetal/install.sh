@@ -1,11 +1,23 @@
-
-
 DESTINATION=$1
 
-echo "Installing into: ${DESTINATION}"
+echo "Compiling .  .  ."
 
-cp boot/bootcode.bin $DESTINATION/bootcode.bin
-cp kernel7.img $DESTINATION/kernel7.img
-cp boot/start.elf $DESTINATION/start.elf
+make clean && make
 
-echo "Done"
+if [ -d "$DESTINATION" ]; then
+    echo "Installing into: ${DESTINATION} .  .  ."
+
+
+    cp boot/bootcode.bin $DESTINATION/bootcode.bin
+    cp kernel7.img $DESTINATION/kernel7.img
+    cp boot/start.elf $DESTINATION/start.elf
+
+    echo "Files copied"
+    echo "Unmounting location: ${DESTINATION} .  .  ."
+
+    diskutil unmount ${DESTINATION}
+
+else
+    echo "Error: ${DESTINATION} not found. Can not continue."
+    exit 1
+fi
