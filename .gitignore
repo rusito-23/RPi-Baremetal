@@ -53,6 +53,7 @@ dkms.conf
 main.list
 kernel7.img 
 *.img
+*.elf
 
 # BOOT
 boot
