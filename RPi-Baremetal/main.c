@@ -42,7 +42,7 @@ int notmain ( void )
 
     /* Setup the system timer interrupt */
     /* Timer frequency = CLK frequency = 1HHz, CLK period = 1 useg */
-    RPI_GetArmTimer()->Load = 1132; // 1.000.000 useg = 1 seg.
+    RPI_GetArmTimer()->Load = 500000 / 440; // LA 1.000.000 useg = 1 seg.
 
     /* Setup the ARM Timer */
     RPI_GetArmTimer()->Control =
@@ -51,12 +51,11 @@ int notmain ( void )
         RPI_ARMTIMER_CTRL_INT_ENABLE |
         RPI_ARMTIMER_CTRL_PRESCALE_1;
 
-
     RPI_GetIrqController()->Enable_Basic_IRQs = RPI_BASIC_ARM_TIMER_IRQ;
     __enable_interrupts();
 
     while(1) {
-    //============================ CODE APP HERE =====================================
+        //============================ CODE APP HERE =====================================
     }
     return(0);
 }
