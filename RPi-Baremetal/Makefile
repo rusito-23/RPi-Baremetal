@@ -9,6 +9,7 @@ all : kernel7.img
 clean :
 	rm -f *.o
 	rm -f hal/*.o
+	rm -f play/*.o
 	rm -f *.bin
 	rm -f *.hex
 	rm -f *.elf
@@ -17,7 +18,7 @@ clean :
 	rm -f *.bc
 	rm -f Test
 
-OBJS=main.o hal/rpi-gpio.o hal/rpi-armtimer.o hal/rpi-interrupts.o solfege/solfege.o
+OBJS=main.o hal/rpi-gpio.o hal/rpi-armtimer.o hal/rpi-interrupts.o play/play.o
 
 vectors.o : vectors.s
 	$(ARMGNU)-as vectors.s -o vectors.o
@@ -28,7 +29,7 @@ vectors.o : vectors.s
 hal/%.o: hal/%.c
 	$(ARMGNU)-gcc $(CFLAGS) -c $< -o $@
 
-solfege/%.o: solfege/%.c
+play/%.o: play/%.c
 	$(ARMGNU)-gcc $(CFLAGS) -c $< -o $@
 
 main.elf : memmap vectors.o  $(OBJS)

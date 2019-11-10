@@ -6,8 +6,8 @@
 #include "hal/rpi-armtimer.h"
 #include "hal/rpi-interrupts.h"
 #include "solfege/solfege.h"
-
-static note notes[7] = {0};
+#include "solfege/notes.h"
+#include "play/play.h"
 
 extern void __enable_interrupts ( void );
 
@@ -28,24 +28,13 @@ void __attribute__((interrupt("IRQ"))) interrupt_vector ( void )
         lit = 1;
     }
 
-    static int index = 1;
-    static int olit = 261 * 2 * 5;
-
-    if (olit == 0) {
-        olit = notes[index].note.Lit * (notes[index].msec / 1000);
-        RPI_GetArmTimer()->Reload = notes[index].note.Frequency;
-
-        index++;
-        if (index == 7) { index = 0; }
-    } else {
-        // wait
-        olit--;
-    }
+    PlaySong();
 }
 
 //-------------------------------------------------------------------------
 int notmain ( void )
 {
+    note notes[7] = {0};
     notes[0] = (struct note){.note= DO,     .msec= 5000};
     notes[1] = (struct note){.note= RE,     .msec= 5000};
     notes[2] = (struct note){.note= MI,     .msec= 5000};
@@ -60,7 +49,7 @@ int notmain ( void )
 
     /* Setup the system timer interrupt */
     /* Timer frequency = CLK frequency = 1HHz, CLK period = 1 useg */
-    RPI_GetArmTimer()->Load = notes[0].note.Frequency; // LA 1.000.000 useg = 1 seg.
+    InitSong(notes, 7);
 
     /* Setup the ARM Timer */
     RPI_GetArmTimer()->Control =
