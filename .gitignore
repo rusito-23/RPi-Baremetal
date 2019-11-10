@@ -5,7 +5,6 @@
 *.o
 *.ko
 *.obj
-*.elf
 
 # Linker output
 *.ilk
@@ -55,6 +54,7 @@ dkms.conf
 main.list
 kernel7.img 
 *.img
+*.elf
 
 # BOOT
 boot
