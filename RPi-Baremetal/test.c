@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
             {LA, 5000},
             {SI, 5000},
     };
-    
+
     static int index = 0;
     static int olit = 0;
     static int start = 1;
