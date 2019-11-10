@@ -1,10 +1,10 @@
 ARMGNU ?= arm-none-eabi
 
-AOPS = --warn --fatal-warnings 
-CFLAGS = -Wall -Werror -O2 -nostdlib -nostartfiles -ffreestanding 
+AOPS = --warn --fatal-warnings
+CFLAGS = -Wall -Werror -O2 -nostdlib -nostartfiles -lgcc -lm -ffreestanding
 
 
-all : kernel7.img 
+all : kernel7.img
 
 clean :
 	rm -f *.o
@@ -16,16 +16,19 @@ clean :
 	rm -f *.img
 	rm -f *.bc
 
-OBJS=main.o hal/rpi-gpio.o hal/rpi-armtimer.o hal/rpi-interrupts.o
+OBJS=main.o hal/rpi-gpio.o hal/rpi-armtimer.o hal/rpi-interrupts.o solfege/solfege.o
 
 vectors.o : vectors.s
 	$(ARMGNU)-as vectors.s -o vectors.o
 
-	
+
 %.o: %.c
 	$(ARMGNU)-gcc $(CFLAGS) -c $< -o $@
-	
+
 hal/%.o: hal/%.c
+	$(ARMGNU)-gcc $(CFLAGS) -c $< -o $@
+
+solfege/%.o: solfege/%.c
 	$(ARMGNU)-gcc $(CFLAGS) -c $< -o $@
 
 main.elf : memmap vectors.o  $(OBJS)
@@ -37,4 +40,3 @@ kernel7.img : main.elf
 
 main.hex : main.elf
 	$(ARMGNU)-objcopy main.elf -O ihex main.hex
-
