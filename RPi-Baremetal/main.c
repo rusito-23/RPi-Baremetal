@@ -7,23 +7,16 @@
 #include "hal/rpi-interrupts.h"
 #include "solfege/solfege.h"
 
+static note notes[7] = {0};
+
 extern void __enable_interrupts ( void );
 
 //-------------------------------------------------------------------------
 void __attribute__((interrupt("IRQ"))) interrupt_vector ( void )
 {
     static int lit = 0;
-
-    static int index = 1;
-    static int olit = 261 * 10;
-
-    /* Clear the ARM Timer interrupt - it's the only interrupt we have
-       enabled, so we want don't have to work out which interrupt source
-       caused us to interrupt */
     RPI_GetArmTimer()->IRQClear = 1;
 
-    //============================ CODE APP HERE =====================================
-    /* EXAMPLE COD: Flip the LED every 1 second */
     if( lit )
     {
         LED_OFF();
@@ -35,16 +28,17 @@ void __attribute__((interrupt("IRQ"))) interrupt_vector ( void )
         lit = 1;
     }
 
+    static int index = 1;
+    static int olit = 261 * 2 * 5;
+
     if (olit == 0) {
+        olit = notes[index].note.Lit * (notes[index].msec / 1000);
+        RPI_GetArmTimer()->Reload = notes[index].note.Frequency;
 
-        note_t note = getNotes()[index];
-        RPI_GetArmTimer()->Reload = note.Frequency;
-
-        // next note
-        olit = note.Time;
         index++;
         if (index == 7) { index = 0; }
     } else {
+        // wait
         olit--;
     }
 }
@@ -52,6 +46,13 @@ void __attribute__((interrupt("IRQ"))) interrupt_vector ( void )
 //-------------------------------------------------------------------------
 int notmain ( void )
 {
+    notes[0] = (struct note){.note= DO,     .msec= 5000};
+    notes[1] = (struct note){.note= RE,     .msec= 5000};
+    notes[2] = (struct note){.note= MI,     .msec= 5000};
+    notes[3] = (struct note){.note= FA,     .msec= 5000};
+    notes[4] = (struct note){.note= SOL,    .msec= 5000};
+    notes[5] = (struct note){.note= LA,     .msec= 5000};
+    notes[6] = (struct note){.note= SI,     .msec= 5000};
 
     RPI_GetIrqController()->Disable_Basic_IRQs = RPI_BASIC_ARM_TIMER_IRQ;
 
@@ -59,7 +60,7 @@ int notmain ( void )
 
     /* Setup the system timer interrupt */
     /* Timer frequency = CLK frequency = 1HHz, CLK period = 1 useg */
-    RPI_GetArmTimer()->Load = getNotes()[0].Frequency; // LA 1.000.000 useg = 1 seg.
+    RPI_GetArmTimer()->Load = notes[0].note.Frequency; // LA 1.000.000 useg = 1 seg.
 
     /* Setup the ARM Timer */
     RPI_GetArmTimer()->Control =

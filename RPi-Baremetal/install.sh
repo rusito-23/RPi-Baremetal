@@ -2,7 +2,7 @@ DESTINATION=$1
 
 echo "Compiling .  .  ."
 
-make clean && make
+make clean && make || exit 1;
 
 if [ -d "$DESTINATION" ]; then
     echo "Installing into: ${DESTINATION} .  .  ."
