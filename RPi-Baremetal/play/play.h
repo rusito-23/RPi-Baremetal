@@ -1,7 +1,9 @@
 #ifndef PLAY_H
 #define PLAY_H
 
-void InitSong(note* sSong, int sSize);
+#include "../song/song.h"
+
+void InitSong(Song song);
 
 void PlaySong();
 

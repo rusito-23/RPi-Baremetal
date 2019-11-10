@@ -9,20 +9,20 @@
  *     - Lit: Interrups per second according to the Frequency
  *     - Raw: Raw frequency value (unused, yet usefull)
  * */
-typedef struct note_t {
+typedef struct Note {
     int Frequency;
     int Lit;
     int Raw;
-} note_t;
+} Note;
 
 /**
  * Defines a note to be played:
- *     - note -> note_t with te information to be played
+ *     - note -> Note with te information to be played
  *     - msec -> milliseconds we wish the note to be played
  * */
-typedef struct note {
-    note_t note;
+typedef struct PlayNote {
+    Note note;
     int msec;
-} note;
+} PlayNote;
 
 #endif

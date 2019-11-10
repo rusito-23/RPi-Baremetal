@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
         if (start) { start = 0; }
 
         // take the note
-        note_t note = notes[index].note;
+        Note note = notes[index].note;
         int msec = notes[index].msec;
 
         // make it sound

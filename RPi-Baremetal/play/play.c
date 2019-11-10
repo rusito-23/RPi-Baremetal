@@ -4,29 +4,32 @@
 #include "../hal/rpi-gpio.h"
 #include "../hal/rpi-armtimer.h"
 #include "../solfege/solfege.h"
+#include "../song/song.h"
 
-static note* song;
-static int size;
+static Song song;
+static int index;
+static int olit;
 
 //-------------------------------------------------------------------------
 
-void InitSong(note* sSong, int sSize) {
+void InitSong(Song sSong) {
     song = sSong;
-    size = sSize;
-    RPI_GetArmTimer()->Load = song[0].note.Frequency;
+    index = 1;
+    olit = song.notes[index].note.Lit * (song.notes[index].msec / 1000);
+
+    RPI_GetArmTimer()->Load = song.notes[0].note.Frequency;
 }
 
 
 void PlaySong() {
-    static int index = 1;
-    static int olit = 261 * 2 * 5;
 
     if (olit == 0) {
-        olit = song[index].note.Lit * (song[index].msec / 1000);
-        RPI_GetArmTimer()->Reload = song[index].note.Frequency;
+        olit = song.notes[index].note.Lit * (song.notes[index].msec / 1000);
+        RPI_GetArmTimer()->Reload = song.notes[index].note.Frequency;
+
 
         index++;
-        if (index == size) { index = 0; }
+        if (index == song.size) { index = 0; }
     } else {
         // wait
         olit--;
