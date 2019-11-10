@@ -10,6 +10,7 @@ clean :
 	rm -f *.o
 	rm -f hal/*.o
 	rm -f play/*.o
+	rm -f song/*.o
 	rm -f *.bin
 	rm -f *.hex
 	rm -f *.elf
@@ -18,7 +19,7 @@ clean :
 	rm -f *.bc
 	rm -f Test
 
-OBJS=main.o hal/rpi-gpio.o hal/rpi-armtimer.o hal/rpi-interrupts.o play/play.o
+OBJS=main.o hal/rpi-gpio.o hal/rpi-armtimer.o hal/rpi-interrupts.o play/play.o song/song.o
 
 vectors.o : vectors.s
 	$(ARMGNU)-as vectors.s -o vectors.o
@@ -30,6 +31,9 @@ hal/%.o: hal/%.c
 	$(ARMGNU)-gcc $(CFLAGS) -c $< -o $@
 
 play/%.o: play/%.c
+	$(ARMGNU)-gcc $(CFLAGS) -c $< -o $@
+
+song/%.o: song/%.c
 	$(ARMGNU)-gcc $(CFLAGS) -c $< -o $@
 
 main.elf : memmap vectors.o  $(OBJS)

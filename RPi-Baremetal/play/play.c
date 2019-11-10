@@ -29,7 +29,7 @@ void PlaySong() {
 
 
         index++;
-        if (index == song.size) { index = 0; }
+        if (index == song.size && song.replay) { index = 0; }
     } else {
         // wait
         olit--;
