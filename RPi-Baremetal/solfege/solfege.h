@@ -1,8 +1,6 @@
 #ifndef SOLFEGE_H
 #define SOLFEGE_H
 
-#define BASE_FREQ 500000
-
 /**
  * Defines a note:
  *     - Frequency: Value to be send into IRQTimer
@@ -18,11 +16,13 @@ typedef struct Note {
 /**
  * Defines a note to be played:
  *     - note -> Note with te information to be played
- *     - msec -> milliseconds we wish the note to be played
+ *     - sec -> seconds we wish the note to be played
+ *     - divide -> indicator to check if we have divide the value of the secs
  * */
 typedef struct PlayNote {
     Note note;
-    int msec;
+    int sec;
+    int divide;
 } PlayNote;
 
 #endif

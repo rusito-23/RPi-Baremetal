@@ -6,7 +6,6 @@
 
 int main(int argc, char *argv[]) {
 
-
     note notes[7] = {
             {DO, 5000},
             {RE, 5000},
@@ -27,14 +26,14 @@ int main(int argc, char *argv[]) {
 
         // take the note
         Note note = notes[index].note;
-        int msec = notes[index].msec;
+        int sec = notes[index].sec;
 
         // make it sound
-        printf("Frequency -> %d, Lit: -> %d, Msec: -> %d \n", note.Frequency, note.Lit, msec);
+        printf("Frequency -> %d, Lit: -> %d, sec: -> %d \n", note.Frequency, note.Lit, sec);
         //RPI_GetArmTimer()->Reload = note.Frequency;
 
         // set next note
-        olit = note.Lit * (msec / 1000);
+        olit = note.Lit * (sec / 1000);
         index++;
         if (index == 6) { index = 0; }
 

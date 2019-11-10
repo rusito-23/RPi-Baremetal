@@ -15,4 +15,6 @@ typedef struct Song {
 
 void createDoReMiFaSolLaSi();
 
+void createQuienSeHaTomado();
+
 #endif

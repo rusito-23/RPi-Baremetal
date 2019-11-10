@@ -15,7 +15,8 @@ static int olit;
 void InitSong(Song sSong) {
     song = sSong;
     index = 1;
-    olit = song.notes[index].note.Lit * (song.notes[index].msec / 1000);
+
+    olit = (song.notes[index].note.Lit * (song.notes[index].sec)) - song.notes[index].divide;
 
     RPI_GetArmTimer()->Load = song.notes[0].note.Frequency;
 }
@@ -23,10 +24,10 @@ void InitSong(Song sSong) {
 
 void PlaySong() {
 
-    if (olit == 0) {
-        olit = song.notes[index].note.Lit * (song.notes[index].msec / 1000);
-        RPI_GetArmTimer()->Reload = song.notes[index].note.Frequency;
+    if (olit <= 0) {
+        olit = (song.notes[index].note.Lit * (song.notes[index].sec)) - song.notes[index].divide;
 
+        RPI_GetArmTimer()->Reload = song.notes[index].note.Frequency;
 
         index++;
         if (index == song.size && song.replay) { index = 0; }

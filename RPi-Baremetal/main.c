@@ -45,7 +45,7 @@ int notmain ( void )
     /* -------- Song Setup -------- */
 
     // Setup
-    createDoReMiFaSolLaSi();
+    createQuienSeHaTomado();
 
     /* ---------------------------- */
 
