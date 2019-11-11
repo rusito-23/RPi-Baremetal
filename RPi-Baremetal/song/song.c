@@ -8,43 +8,19 @@
 
 //-------------------------------------------------------------------------
 
-
-void ALLNOTES() {
-    PlayNote notes[14] = {
-        {.note= DO,     .sec= 1, .divide= 0},
-        {.note= RE,     .sec= 1, .divide= 0},
-        {.note= MI,     .sec= 1, .divide= 0},
-        {.note= FA,     .sec= 1, .divide= 0},
-        {.note= SOL,    .sec= 1, .divide= 0},
-        {.note= LA,     .sec= 1, .divide= 0},
-        {.note= SI,     .sec= 1, .divide= 0},
-
-        {.note= DO_S,     .sec= 1, .divide= 0},
-        {.note= RE_S,     .sec= 1, .divide= 0},
-        {.note= MI_S,     .sec= 1, .divide= 0},
-        {.note= FA_S,     .sec= 1, .divide= 0},
-        {.note= SOL_S,    .sec= 1, .divide= 0},
-        {.note= LA_S,     .sec= 1, .divide= 0},
-        {.note= SI_S,     .sec= 1, .divide= 0},
-    };
-
-    Song song = {.notes= notes, .size= 14, .replay = 0};
-    InitSong(song);
-}
-
 /*
 DO RE MI FA SOL LA SI
 */
 
 void createDoReMiFaSolLaSi() {
     PlayNote notes[7] = {
-        {.note= DO,     .sec= 5, .divide= 0},
-        {.note= RE,     .sec= 5, .divide= 0},
-        {.note= MI,     .sec= 5, .divide= 0},
-        {.note= FA,     .sec= 5, .divide= 0},
-        {.note= SOL,    .sec= 5, .divide= 0},
-        {.note= LA,     .sec= 5, .divide= 0},
-        {.note= SI,     .sec= 5, .divide= 0},
+        {.note= NOTE(DO), .s= 5, .ds= 0},
+        {.note= NOTE(RE), .s= 5, .ds= 0},
+        {.note= NOTE(MI), .s= 5, .ds= 0},
+        {.note= NOTE(FA), .s= 5, .ds= 0},
+        {.note= NOTE(SOL), .s= 5, .ds= 0},
+        {.note= NOTE(LA), .s= 5, .ds= 0},
+        {.note= NOTE(SI), .s= 5, .ds= 0},
     };
 
     Song song = {.notes= notes, .size= 7, .replay = 0};
@@ -57,37 +33,36 @@ QUIEN SE HA TOMADO TODO EL VINO?
 
 void createQuienSeHaTomado() {
     PlayNote notes[24] = {
-        {.note= LA,     .sec= 1, .divide= 650},
-        {.note= DO_S,     .sec= 1, .divide= 300},
-        {.note= MI_S,     .sec= 1, .divide= 300},
+        {.note= NOTE(LA), .s= 0, .ds= 10},
+        {.note= NOTE_O(DO, SECOND_OCTAVE), .s= 0, .ds= 10},
+        {.note= NOTE_O(MI, SECOND_OCTAVE), .s= 0, .ds= 30},
 
-        {.note= LA,     .sec= 1, .divide= 650},
-        {.note= DO_S,     .sec= 1, .divide= 300},
-        {.note= MI_S,     .sec= 1, .divide= 300},
+        {.note= NOTE(LA), .s= 0, .ds= 10},
+        {.note= NOTE_O(DO, SECOND_OCTAVE), .s= 0, .ds= 10},
+        {.note= NOTE_O(MI, SECOND_OCTAVE), .s= 0, .ds= 30},
 
-        {.note= LA,     .sec= 1, .divide= 650},
-        {.note= DO_S,     .sec= 1, .divide= 300},
-        {.note= MI_S,     .sec= 1, .divide= 300},
+        {.note= NOTE(LA), .s= 0, .ds= 10},
+        {.note= NOTE_O(DO, SECOND_OCTAVE), .s= 0, .ds= 10},
+        {.note= NOTE_O(MI, SECOND_OCTAVE), .s= 0, .ds= 20},
+        {.note= NOTE_O(RE, SECOND_OCTAVE), .s= 0, .ds= 10},
+        {.note= NOTE_O(DO, SECOND_OCTAVE), .s= 0, .ds= 10},
+        {.note= NOTE(SI), .s= 0, .ds= 80},
 
-        {.note= RE_S,     .sec= 1, .divide= 300},
-        {.note= DO_S,     .sec= 1, .divide= 300},
-        {.note= SI,     .sec= 1, .divide= 500},
+        {.note= NOTE(SOL), .s= 0, .ds= 10},
+        {.note= NOTE(SI), .s= 0, .ds= 10},
+        {.note= NOTE_O(RE, SECOND_OCTAVE), .s= 0, .ds= 30},
 
-        {.note= SOL,    .sec= 1, .divide= 600},
-        {.note= SI,    .sec= 1, .divide= 700},
-        {.note= RE_S,    .sec= 1, .divide= 300},
+        {.note= NOTE(SOL), .s= 0, .ds= 10},
+        {.note= NOTE(SI), .s= 0, .ds= 10},
+        {.note= NOTE_O(RE, SECOND_OCTAVE), .s= 0, .ds= 30},
 
-        {.note= SOL,    .sec= 1, .divide= 600},
-        {.note= SI,    .sec= 1, .divide= 700},
-        {.note= RE_S,    .sec= 1, .divide= 300},
+        {.note= NOTE(SOL), .s= 0, .ds= 10},
+        {.note= NOTE(SI), .s= 0, .ds= 10},
+        {.note= NOTE_O(RE, SECOND_OCTAVE), .s= 0, .ds= 30},
 
-        {.note= SOL,    .sec= 1, .divide= 600},
-        {.note= SI,    .sec= 1, .divide= 700},
-        {.note= RE_S,    .sec= 1, .divide= 300},
-
-        {.note= DO_S,     .sec= 1, .divide= 300},
-        {.note= RE_S,    .sec= 1, .divide= 300},
-        {.note= MI_S,     .sec= 1, .divide= 300},
+        {.note= NOTE_O(DO, SECOND_OCTAVE), .s= 0, .ds= 30},
+        {.note= NOTE_O(RE, SECOND_OCTAVE), .s= 0, .ds= 30},
+        {.note= NOTE_O(MI, SECOND_OCTAVE), .s= 0, .ds= 30},
     };
 
     Song song = {.notes= notes, .size= 24, .replay = 1};

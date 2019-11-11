@@ -10,7 +10,7 @@ typedef struct Song {
 } Song;
 
 /**
-* ALL NEW SONGS ARE DEFINED HERE
+* ALL SONGS ARE DEFINED HERE
 */
 
 void createDoReMiFaSolLaSi();
