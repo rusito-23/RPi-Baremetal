@@ -56,29 +56,40 @@ QUIEN SE HA TOMADO TODO EL VINO?
 */
 
 void createQuienSeHaTomado() {
-    PlayNote notes[14] = {
-        {.note= LA,     .sec= 1, .divide= 700},
+    PlayNote notes[24] = {
+        {.note= LA,     .sec= 1, .divide= 650},
         {.note= DO_S,     .sec= 1, .divide= 300},
         {.note= MI_S,     .sec= 1, .divide= 300},
 
-        {.note= LA,     .sec= 1, .divide= 700},
+        {.note= LA,     .sec= 1, .divide= 650},
         {.note= DO_S,     .sec= 1, .divide= 300},
         {.note= MI_S,     .sec= 1, .divide= 300},
 
-        {.note= LA,     .sec= 1, .divide= 700},
+        {.note= LA,     .sec= 1, .divide= 650},
         {.note= DO_S,     .sec= 1, .divide= 300},
         {.note= MI_S,     .sec= 1, .divide= 300},
 
         {.note= RE_S,     .sec= 1, .divide= 300},
         {.note= DO_S,     .sec= 1, .divide= 300},
-        {.note= SI,     .sec= 1, .divide= 300},
+        {.note= SI,     .sec= 1, .divide= 500},
 
-        {.note= SOL,    .sec= 1, .divide= 400},
-        {.note= SOL,    .sec= 1, .divide= 400},
+        {.note= SOL,    .sec= 1, .divide= 600},
+        {.note= SI,    .sec= 1, .divide= 700},
+        {.note= RE_S,    .sec= 1, .divide= 300},
 
+        {.note= SOL,    .sec= 1, .divide= 600},
+        {.note= SI,    .sec= 1, .divide= 700},
+        {.note= RE_S,    .sec= 1, .divide= 300},
 
+        {.note= SOL,    .sec= 1, .divide= 600},
+        {.note= SI,    .sec= 1, .divide= 700},
+        {.note= RE_S,    .sec= 1, .divide= 300},
+
+        {.note= DO_S,     .sec= 1, .divide= 300},
+        {.note= RE_S,    .sec= 1, .divide= 300},
+        {.note= MI_S,     .sec= 1, .divide= 300},
     };
 
-    Song song = {.notes= notes, .size= 14, .replay = 1};
+    Song song = {.notes= notes, .size= 24, .replay = 1};
     InitSong(song);
 }
