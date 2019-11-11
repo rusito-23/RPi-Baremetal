@@ -19,9 +19,9 @@ static int olit;
 */
 static int calculateOlit(PlayNote play) {
     // interruptions per second * seconds to play
-    int seconds = play.note.IPS * play.s;
+    int seconds = play.note.IPS * play.duration.s;
     // ips - (ips * (100 - deciseconds to play))
-    int deciseconds = play.note.IPS - (play.note.IPS * (100 - play.ds));
+    int deciseconds = play.note.IPS - (play.note.IPS * (100 - play.duration.ds));
     return seconds + deciseconds;
 }
 

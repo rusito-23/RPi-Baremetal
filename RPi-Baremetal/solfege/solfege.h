@@ -12,6 +12,14 @@ typedef struct Note {
 } Note;
 
 /**
+* Defines a Note Duration (in seconds and deciseconds)
+*/
+typedef struct Duration {
+    int s;
+    int ds;
+} Duration;
+
+/**
  * Defines a note to be played:
  *     - note -> Note with te information to be played
  *     - sec -> seconds we wish the note to be played
@@ -19,8 +27,7 @@ typedef struct Note {
  * */
 typedef struct PlayNote {
     Note note;
-    int s;
-    int ds;
+    Duration duration;
 } PlayNote;
 
 #endif
