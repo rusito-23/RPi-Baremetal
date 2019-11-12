@@ -32,7 +32,10 @@ QUIEN SE HA TOMADO TODO EL VINO?
 */
 
 void createQuienSeHaTomado() {
-    PlayNote notes[9] = {
+    PlayNote notes[24] = {
+
+        /* primera parte */
+
         {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
         {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
         {.note= SECOND_OCTAVE(MI), .duration= QUAVER},
@@ -44,8 +47,33 @@ void createQuienSeHaTomado() {
         {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
         {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
         {.note= SECOND_OCTAVE(MI), .duration= SEMIQUAVER},
+
+        {.note= SECOND_OCTAVE(RE), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+        {.note= FIRST_OCTAVE(SI), .duration= SEMIQUAVER},
+        {.note= FIRST_OCTAVE(SOL), .duration= QUAVER},
+
+        {.note= NO_NOTE, .duration= {.s = 0, .ds = 1}},
+
+        /* segunda parte */
+
+        {.note= FIRST_OCTAVE(SOL), .duration= SEMIQUAVER},
+        {.note= FIRST_OCTAVE(SI), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(RE), .duration= QUAVER},
+
+        {.note= FIRST_OCTAVE(SOL), .duration= SEMIQUAVER},
+        {.note= FIRST_OCTAVE(SI), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(RE), .duration= SEMIQUAVER},
+
+        {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(RE), .duration= QUAVER},
+        {.note= SECOND_OCTAVE(MI), .duration= SEMIQUAVER},
+
+
+        // silencio final
+        {.note= NO_NOTE, .duration= {.s = 2, .ds = 0}},
     };
 
-    Song song = {.notes= notes, .size= 9, .replay = 1};
+    Song song = {.notes= notes, .size= 24, .replay = 1};
     InitSong(song);
 }

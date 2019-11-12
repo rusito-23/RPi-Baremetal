@@ -23,7 +23,7 @@
 #define FIRST_OCTAVE(NOTE) (struct Note) {.Frequency= BASE / NOTE, .IPS= NOTE * 2}
 #define SECOND_OCTAVE(NOTE) (struct Note) {.Frequency= BASE / (2 * NOTE), .IPS= (2 * NOTE) * 2}
 #define THIRD_OCTAVE(NOTE) (struct Note) {.Frequency= BASE / (3 * NOTE), .IPS= (3 * NOTE) * 2}
-#define NO_NOTE (struct Note) {.Frequency= BASE_OCTAVE * 2, .IPS= 1};
+#define NO_NOTE (struct Note) {.Frequency= BASE / 5, .IPS= 10}
 
 /**
 * Define all durations

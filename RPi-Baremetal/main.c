@@ -19,12 +19,12 @@ void __attribute__((interrupt("IRQ"))) interrupt_vector ( void )
 
     if( lit )
     {
-        LED_OFF();
+        SOUND_OFF();
         lit = 0;
     }
     else
     {
-        LED_ON();
+        SOUND_ON();
         lit = 1;
     }
 
@@ -40,7 +40,7 @@ int notmain ( void )
 {
     RPI_GetIrqController()->Disable_Basic_IRQs = RPI_BASIC_ARM_TIMER_IRQ;
 
-    RPI_GetGpio()->LED_GPFSEL |= 1 << LED_GPFBIT;   // Configurar GPIO del LED como salida | Revisar definiciones en archivo rpi-gpio.h
+    RPI_GetGpio()->SOUND_GPFSEL |= 1 << SOUND_GPFBIT;
 
     /* -------- Song Setup -------- */
 

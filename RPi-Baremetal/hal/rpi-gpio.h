@@ -38,7 +38,7 @@
 
 
 // Music
-/*
+
 #define SOUND_GPFSEL      GPFSEL1
 #define SOUND_GPFBIT      24
 #define SOUND_GPSET       GPSET0
@@ -46,16 +46,6 @@
 #define SOUND_GPIO_BIT    18
 #define SOUND_ON()        do { RPI_GetGpio()->SOUND_GPCLR = ( 1 << SOUND_GPIO_BIT ); } while( 0 )
 #define SOUND_OFF()       do { RPI_GetGpio()->SOUND_GPSET = ( 1 << SOUND_GPIO_BIT ); } while( 0 )
-*/
-
-
-#define LED_GPFSEL      GPFSEL1
-#define LED_GPFBIT      24
-#define LED_GPSET       GPSET0
-#define LED_GPCLR       GPCLR0
-#define LED_GPIO_BIT    18
-#define LED_ON()        do { RPI_GetGpio()->LED_GPCLR = ( 1 << LED_GPIO_BIT ); } while( 0 )
-#define LED_OFF()       do { RPI_GetGpio()->LED_GPSET = ( 1 << LED_GPIO_BIT ); } while( 0 )
 
 
 /***/
