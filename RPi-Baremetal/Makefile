@@ -49,3 +49,4 @@ main.hex : main.elf
 test:
 	gcc $(CFLAGS) test.c -o Test
 	./Test
+	rm Test

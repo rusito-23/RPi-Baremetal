@@ -31,9 +31,9 @@
 
 #define MINIM (struct Duration) {.s= 2, .ds= 0}             // blanca
 #define CROTCHET (struct Duration) {.s= 1, .ds= 0}          // negra
-#define QUAVER (struct Duration) {.s= 0, .ds= 50}           // corchea
-#define SEMIQUAVER (struct Duration) {.s= 0, .ds= 25}       // semi corchea
-#define FUSA (struct Duration) {.s= 0, .ds= 12}             // fusa
+#define QUAVER (struct Duration) {.s= 0, .ds= 5}           // corchea
+#define SEMIQUAVER (struct Duration) {.s= 0, .ds= 2}       // semi corchea
+#define FUSA (struct Duration) {.s= 0, .ds= 1}             // fusa
 
 #define FIVE_SEC (struct Duration) {.s= 5, .ds= 0}             // blanca
 

@@ -1,45 +1,40 @@
 
 #include <stdio.h>
 #include "solfege/solfege.h"
+#include "solfege/notes.h"
 
 
 
 int main(int argc, char *argv[]) {
 
-    note notes[7] = {
-            {DO, 5000},
-            {RE, 5000},
-            {MI, 5000},
-            {FA, 5000},
-            {SOL, 5000},
-            {LA, 5000},
-            {SI, 5000},
+    // TEST ALGORITMO DE PROGRAMACION
+
+    PlayNote notes[9] = {
+        {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(SI), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(DO), .duration= QUAVER},
+
+        {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(SI), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(DO), .duration= QUAVER},
+
+        {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(SI), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
     };
 
-    static int index = 0;
-    static int olit = 0;
-    static int start = 1;
+    for (int i = 0; i < 9; i++) {
+        int desec = notes[i].duration.ds;
 
-    if (!olit || start) {
+        int IPS_B = notes[i].note.IPS;
+        int IPS = notes[i].note.IPS;
 
-        if (start) { start = 0; }
+        while(IPS % 10 != 0) {
+            IPS++;
+        }
+        IPS = (IPS / 10) * desec;
 
-        // take the note
-        Note note = notes[index].note;
-        int sec = notes[index].sec;
-
-        // make it sound
-        printf("Frequency -> %d, Lit: -> %d, sec: -> %d \n", note.Frequency, note.Lit, sec);
-        //RPI_GetArmTimer()->Reload = note.Frequency;
-
-        // set next note
-        olit = note.Lit * (sec / 1000);
-        index++;
-        if (index == 6) { index = 0; }
-
-    } else {
-        // wait
-        olit--;
+        printf("desec: %d, IPS_B: %d, result: %d \n",desec, IPS_B, IPS);
     }
 
     return 0;

@@ -34,16 +34,16 @@ QUIEN SE HA TOMADO TODO EL VINO?
 void createQuienSeHaTomado() {
     PlayNote notes[9] = {
         {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
-        {.note= SECOND_OCTAVE(SI), .duration= SEMIQUAVER},
-        {.note= SECOND_OCTAVE(DO), .duration= QUAVER},
-
-        {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
-        {.note= SECOND_OCTAVE(SI), .duration= SEMIQUAVER},
-        {.note= SECOND_OCTAVE(DO), .duration= QUAVER},
-
-        {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
-        {.note= SECOND_OCTAVE(SI), .duration= SEMIQUAVER},
         {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(MI), .duration= QUAVER},
+
+        {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(MI), .duration= QUAVER},
+
+        {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+        {.note= SECOND_OCTAVE(MI), .duration= SEMIQUAVER},
     };
 
     Song song = {.notes= notes, .size= 9, .replay = 1};
