@@ -207,7 +207,7 @@ void createQuienSeHaTomado() {
     InitSong(song);
 }
 
-void createTetris {
+void createTetris() {
     PlayNote notes[42] = {
 
 
