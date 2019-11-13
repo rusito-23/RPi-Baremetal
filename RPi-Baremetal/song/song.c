@@ -206,3 +206,55 @@ void createQuienSeHaTomado() {
     Song song = {.notes= notes, .size= 118, .replay = 1};
     InitSong(song);
 }
+
+void createTetris {
+    PlayNote notes[42] = {
+
+
+            {.note= NO_NOTE, .duration= {.s = 0, .ds = .5}},
+            {.note= SECOND_OCTAVE(MI), .duration= QUAVER},
+            {.note= FIRST_OCTAVE(SI), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(RE), .duration= QUAVER},
+            {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+            {.note= FIRST_OCTAVE(SI), .duration= SEMIQUAVER},
+            {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
+            {.note= NO_NOTE, .duration= {.s = 0, .ds = .5}},
+            {.note= FIRST_OCTAVE(LA), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(MI), .duration= QUAVER},
+            {.note= SECOND_OCTAVE(RE), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+            {.note= FIRST_OCTAVE(SI), .duration= QUAVER},
+            {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(RE), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(MI), .duration= QUAVER},
+            {.note= SECOND_OCTAVE(DO), .duration= QUAVER},
+            {.note= FIRST_OCTAVE(LA), .duration= FUSA},
+            {.note= NO_NOTE, .duration= {.s = 0, .ds = .3}},
+            {.note= FIRST_OCTAVE(LA), .duration= QUAVER},
+            {.note= SECOND_OCTAVE(RE), .duration= SEMIQUAVER},
+            {.note= FIRST_OCTAVE(FA), .duration= QUAVER},
+            {.note= FIRST_OCTAVE(LA), .duration= QUAVER},
+            {.note= FIRST_OCTAVE(SOL), .duration= SEMIQUAVER},
+            {.note= FIRST_OCTAVE(FA), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(MI), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(MI), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(RE), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+            {.note= FIRST_OCTAVE(SI), .duration= FUSA},
+            {.note= NO_NOTE, .duration= {.s = 0, .ds = .5}},
+            {.note= FIRST_OCTAVE(SI), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(RE), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(MI), .duration= SEMIQUAVER},
+            {.note= SECOND_OCTAVE(DO), .duration= SEMIQUAVER},
+            {.note= FIRST_OCTAVE(LA), .duration= FUSA},
+            {.note= NO_NOTE, .duration= {.s = 0, .ds = .5}},
+            {.note= FIRST_OCTAVE(LA), .duration= QUAVER},
+    };
+
+    Song song = {.notes= notes, .size= 42, .replay = 0};
+    InitSong(song);
+}

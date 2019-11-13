@@ -17,4 +17,6 @@ void createDoReMiFaSolLaSi();
 
 void createQuienSeHaTomado();
 
+void createTetris();
+
 #endif
