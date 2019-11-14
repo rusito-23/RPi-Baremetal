@@ -1,14 +1,14 @@
-# RPI Baremetal
-## 1-bit audio
+# RPI Baremetal :speaker:
+## 1-bit audio
 
-### Intro
+### Intro
 This proyect was made as an exercise in FaMAF - Córdoba, Argentina for the course Computer Architecture.
 
-### What is 1-bit music?
+### What is 1-bit music?
 
 [Please read this document](docs/Intro.pdf)
 
-### How do we manage to achieve single bit music?
+### How do we manage to achieve single bit music?
 
 The raspberry manages to send bit signals through the pins, we use the pin connected with the signal GPIO18 to send a bit, which causes the speaker cone to go fordward or backwards.
 
@@ -43,7 +43,7 @@ For example, the first octave *LA*, uses as frequency `500000 / 440`, so we will
 
 And so on . . .
 
-### Structure
+### Structure
 
 - **hal**: This module takes care of the communication with the RPi pins using GPIO registers.
 	
