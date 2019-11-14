@@ -14,7 +14,7 @@ The raspberry manages to send bit signals through the pins, we use the pin conne
 
 This effect causes the speaker cone to vibrate and reproduce a sound. This vibration depends on the frequency on which the micro sends the bit, on every interruption it changes the bit value:
 
-```
+```c
 //-------------------------------------------------------------------------
 void __attribute__((interrupt("IRQ"))) interrupt_vector ( void )
 {
