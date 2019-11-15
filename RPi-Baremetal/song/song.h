@@ -7,16 +7,19 @@ typedef struct Song {
     PlayNote *notes;
     int size;
     int replay;
+    int number_song;
 } Song;
 
 /**
 * ALL SONGS ARE DEFINED HERE
 */
 
-void createDoReMiFaSolLaSi();
+Song createDoReMiFaSolLaSi();
 
-void createQuienSeHaTomado();
+Song createQuienSeHaTomado();
 
-void createTetris();
+Song createTetris();
+
+void changeSong(Song);
 
 #endif

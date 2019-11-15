@@ -48,6 +48,14 @@
 #define SOUND_OFF()       do { RPI_GetGpio()->SOUND_GPSET = ( 1 << SOUND_GPIO_BIT ); } while( 0 )
 
 
+// Interrupt
+
+// GPIO14 SW
+#define SW_GPFLEV      GPLEV0
+#define SW_GPIO_BIT    (1 << 25)
+
+
+
 /***/
 #define RPI_GPIO_FSEL0_00_INPUT     ( 0 )
 #define RPI_GPIO_FSEL0_00_OUTPUT    ( 1 )

@@ -15,6 +15,7 @@ extern void __enable_interrupts ( void );
 void __attribute__((interrupt("IRQ"))) interrupt_vector ( void )
 {
     static int lit = 0;
+
     RPI_GetArmTimer()->IRQClear = 1;
 
     if( lit )
@@ -45,7 +46,9 @@ int notmain ( void )
     /* -------- Song Setup -------- */
 
     // Setup
-    createTetris();
+
+    Song b = createQuienSeHaTomado();
+
 
     /* ---------------------------- */
 
@@ -59,7 +62,18 @@ int notmain ( void )
     RPI_GetIrqController()->Enable_Basic_IRQs = RPI_BASIC_ARM_TIMER_IRQ;
     __enable_interrupts();
 
+    static int sw_flag = 0;
+
     while(1) {
+        if ((RPI_GetGpio()->SW_GPFLEV & SW_GPIO_BIT)) {
+            if (!sw_flag) {
+                sw_flag = 1;
+                changeSong(b);
+            }
+        } else {
+            sw_flag = 0;
+        }
+
     }
     return(0);
 }

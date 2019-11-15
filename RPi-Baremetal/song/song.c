@@ -12,7 +12,7 @@
 DO RE MI FA SOL LA SI
 */
 
-void createDoReMiFaSolLaSi() {
+Song createDoReMiFaSolLaSi() {
     PlayNote notes[7] = {
         {.note= FIRST_OCTAVE(DO), .duration= FIVE_SEC},
         {.note= FIRST_OCTAVE(RE), .duration= FIVE_SEC},
@@ -23,15 +23,16 @@ void createDoReMiFaSolLaSi() {
         {.note= FIRST_OCTAVE(SI), .duration= FIVE_SEC},
     };
 
-    Song song = {.notes= notes, .size= 7, .replay = 0};
+    Song song = {.notes= notes, .size= 7, .replay = 0, .number_song = 0};
     InitSong(song);
-}
+    return song;
+};
 
 /*
 QUIEN SE HA TOMADO TODO EL VINO?
 */
 
-void createQuienSeHaTomado() {
+Song createQuienSeHaTomado() {
     PlayNote notes[118] = {
 
         /* primera parte */
@@ -202,12 +203,12 @@ void createQuienSeHaTomado() {
         // silencio final
         {.note= NO_NOTE, .duration= {.s = 2, .ds = 0}},
     };
-
-    Song song = {.notes= notes, .size= 118, .replay = 1};
+    Song song = {.notes= notes, .size= 118, .replay = 1, .number_song = 1};
     InitSong(song);
-}
+    return song;
+};
 
-void createTetris() {
+Song createTetris() {
     PlayNote notes[42] = {
 
 
@@ -255,6 +256,22 @@ void createTetris() {
             {.note= FIRST_OCTAVE(LA), .duration= QUAVER},
     };
 
-    Song song = {.notes= notes, .size= 42, .replay = 0};
+    Song song = {.notes= notes, .size= 42, .replay = 0, .number_song = 2};
     InitSong(song);
+    return song;
+};
+
+void changeSong(Song song){
+    if (song.number_song == 0){
+        createQuienSeHaTomado();
+        PlaySong();
+    }
+    else if(song.number_song == 1) {
+        createTetris();
+        PlaySong();
+    }
+    else if (song.number_song == 2){
+        createDoReMiFaSolLaSi();
+        PlaySong();
+    };
 }
