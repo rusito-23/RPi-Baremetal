@@ -20,7 +20,11 @@ static int olit;
 static int calculateOlit(PlayNote play) {
     // interruptions per second * seconds to play
     int seconds = play.note.IPS * play.duration.s;
-    // ips - (ips * (100 - deciseconds to play))
+    
+    // as we cannot use double or floating point numbers,
+    // we need to round the result of the division by 10
+    // for the Intructions Per Second.
+    // The final result (Intructions per decisecond to be played) is still aceptable.
     int deciseconds = play.note.IPS;
     while(deciseconds % 10 != 0) {
         deciseconds++;
