@@ -2,7 +2,7 @@
 ## 1-bit audio
 
 ### First of all! Demo!
-[Click here for the demo](demo/demo.mp4)
+[Click here for the demo](https://drive.google.com/open?id=1i9S-KEySS-UyNdCsKtYK2maW79iF2KwS)
 
 ### Intro
 This proyect was made as an exercise in FaMAF - Córdoba, Argentina for the course Computer Architecture.
