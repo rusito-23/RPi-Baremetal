@@ -1,6 +1,9 @@
 # RPI Baremetal :speaker:
 ## 1-bit audio
 
+### First of all! Demo!
+[Click here for the demo](demo/demo.mp4)
+
 ### Intro
 This proyect was made as an exercise in FaMAF - Córdoba, Argentina for the course Computer Architecture.
 
